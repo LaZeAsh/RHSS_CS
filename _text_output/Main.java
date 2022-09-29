@@ -1,4 +1,4 @@
-package _practice_programs;
+package _text_output;
 // import java.awt.*;
 import hsa_ufa.Console;
 /*
