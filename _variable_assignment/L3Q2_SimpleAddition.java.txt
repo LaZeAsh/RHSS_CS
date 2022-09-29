@@ -1,0 +1,26 @@
+package variable_assignment;
+/*
+Class Name: L3Q2_SimpleAddition
+Programmer: Ayush
+Date Modified: Tuesday, September 27 2022
+Description: Class for all the submissions of Module 2.3 Variables
+*/
+import hsa_ufa.Console;
+public class L3Q2_SimpleAddition {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        simpleAddition(c);
+    }
+    /**
+     * Adds 2 different variables and outputs the results in the HSA Console
+     * @param c
+     */
+    public static void simpleAddition(Console c) {
+        //Defining the numbers being used
+        int number1 = 300;
+        int number2 = 532;
+        //Printing a statement of the numbers
+        c.println(number1 + " + " + number2 + " = " + (number1 + number2));
+    }
+}

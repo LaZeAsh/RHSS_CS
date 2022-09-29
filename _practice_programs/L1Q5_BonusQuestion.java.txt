@@ -1,0 +1,22 @@
+/*
+Class Name: L1Q5_BonusQuestion
+Programmer: Ayush
+Date Modified: Thursday, September 2022
+Description: Class for all the submissions of Module 2.1 Text Output
+*/
+
+public class L1Q5_BonusQuestion {
+    static Console c;
+    public static void main(String[] args) {
+        extraProblem(c); //executing a method
+    }
+    /*
+    Description - This is a solution for a problem I made up myself,
+    this prints the integer and combines it with strings
+    */
+    public static void extraProblem(Console c) {
+        c = new Console(); // Creates new Console
+        int variable = 2 + 2;
+        c.println(variable + " is 4!");
+    }
+}

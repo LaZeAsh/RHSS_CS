@@ -1,0 +1,23 @@
+/*
+Class Name: L1Q3_WordArt
+Programmer: Ayush
+Date Modified: Thursday, September 2022
+Description: Class for all the submissions of Module 2.1 Text Output
+*/
+
+public class L1Q3_WordArt {
+    static Console c;
+    public static void main(String[] args) {
+        wordArt(c); //executing a method
+    }
+    /*
+    Description - This is a solution for Question # 3 and it asks us to print text in a format
+    of parallelogram, trapezoid, and diamond
+    */
+    public static void wordArt(Console c) {
+        c = new Console(); // Creates new Console
+        c.println("PARALLELOG\n A        R\n  R        A\n   ALLELOGRAM");
+        c.println("\n  APEZO\n R     I\nTRAPEZOID");
+        c.println("\n   D\n  I I\n A   A\nM     M\n O   O\n  N N\n   D");
+    }
+}

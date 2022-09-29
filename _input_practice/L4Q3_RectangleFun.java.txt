@@ -1,0 +1,37 @@
+package _input_practice;
+/*
+Class Name: L4Q3_RectangleFun
+Programmer: Ayush
+Date Modified: Wednesday, September 28 2022
+Description: Class for all the submissions of Module 2.4 Input Assignment
+*/
+import hsa_ufa.*;
+public class L4Q3_RectangleFun {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        rectangleFun(c);
+    } // End of main method
+    /**
+     * Draws an appropriate rectangle according to user input
+     * @param c
+     */
+    public static void rectangleFun(Console c) {
+        //Taking required input
+        c.println("Input height of rectangle (int) ");
+        int height = c.readInt();
+        c.println("Input width of rectangle (int) ");
+        int width = c.readInt();
+        c.println("x-coordinate of the rectangle (int) ");
+        int xCoordinate = c.readInt();
+        c.println("y-coordinate of the rectangle (int) ");
+        int yCoordinate = c.readInt();
+
+        //Clearing the console
+        c.clear();
+
+        //Drawing rectangle
+        c.drawRect(xCoordinate, yCoordinate, width, height);
+        c.println("Area of the rectangle: " + (width * height));
+    } // End of rectangleFun method
+} // End of L4Q3_RectangleFun Class

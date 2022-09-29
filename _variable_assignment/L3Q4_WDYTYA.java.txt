@@ -1,0 +1,26 @@
+package variable_assignment;
+/*
+Class Name: L3Q4_WDYTYA
+Programmer: Ayush
+Date Modified: Tuesday, September 27 2022
+Description: Class for all the submissions of Module 2.3 Variables
+*/
+import hsa_ufa.Console;
+public class L3Q4_WDYTYA {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        displayName(c);
+    }
+    /**
+     * Draws the name Ayush Garg into the HSA console using the drawString method
+     * @param c
+     */
+    public static void displayName(Console c) {
+        String firstName = "Ayush";
+        String lastName = "Garg";
+        int xCoordinate = 10;
+        int yCoordinate = 50;
+        c.drawString(firstName + " " + lastName, xCoordinate, yCoordinate);
+    }
+}

@@ -1,0 +1,21 @@
+/*
+Class Name: L1Q4_ReceiptPrinter
+Programmer: Ayush
+Date Modified: Thursday, September 2022
+Description: Class for all the submissions of Module 2.1 Text Output
+*/
+
+public class L1Q4_ReceiptPrinter {
+    static Console c;
+    public static void main(String[] args) {
+        receipt(c); //executing a method
+    }
+    /*
+    Description - This is the solution for Question # 4 
+    which asks us to print out text in a receipt format
+    */
+    public static void receipt(Console c) {
+        c = new Console(); // Creates new Console
+        c.println("         PETE'S CLOTHIER\n         ***************\n\n           Date:   November 5\n           Name:   Jane Doe\n           Phone #:   555-9990\n       QTY     ITEM        $PRICE$\n\n       1       pants       $4.25\n       2       t-shirt     $4.00\n               TOTAL:      $12.25");
+    }
+}

@@ -1,0 +1,45 @@
+package _input_practice;
+/*
+Class Name: L4Q5_BonusCalculator
+Programmer: Ayush
+Date Modified: Wednesday, September 28 2022
+Description: Class for all the submissions of Module 2.4 Input Assignment
+*/
+import hsa_ufa.*;
+public class L4Q5_BonusCalculator {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        goodCalculator(c);
+    } // End of main method
+    
+    /**
+     * Improved calculator that takes input and implements if statements
+     * @param c
+     */
+    public static void goodCalculator(Console c) {
+        //Taking required input
+        c.println("Input the type of operation you would like to do (String)");
+        String operation = c.readLine();
+        c.println("Input your 1st input (int) ");
+        int input1 = c.readInt();
+        c.println("Input your 2nd input (int) ");
+        int input2 = c.readInt();
+
+        // Clearing the console
+        c.clear();
+
+        // if conditions for doing operations
+        if(operation.equals("addition")) {
+            c.println("The output of your operation is " + (input1 + input2));
+        } else if(operation.equals("subtraction")) {
+            c.println("The output of your operation is " + (input1 - input2));
+        } else if(operation.equals("multiplication")) {
+            c.println("The output of your operation is " + (input1 * input2));
+        } else if(operation.equals("division")) {
+            c.println("The output of your operation is " + (input1 / input2));
+        } else {
+            c.println("Incorrect operation provided try again");
+        }
+    } // End of goodCalculator method
+} // End of L4Q5_BonusCalculator Class

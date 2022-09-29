@@ -1,0 +1,34 @@
+package _input_practice;
+/*
+Class Name: L4Q2_Calculator
+Programmer: Ayush
+Date Modified: Wednesday, September 28 2022
+Description: Class for all the submissions of Module 2.4 Input Assignment
+*/
+import hsa_ufa.*;
+public class L4Q2_Calculator {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        calculator(c);
+    } // End of main method
+    /**
+     * Calculator that allows you to make calculations
+     * @param c
+     */
+    public static void calculator(Console c) {
+        //Taking required input
+        c.println("Input your 1st input (int) ");
+        int input1 = c.readInt();
+        c.println("Input your 2nd input (int) ");
+        int input2 = c.readInt();
+
+        // Clearing the console
+        c.clear();
+
+        c.println(input1 + " + " + input2 + " = " + (input1 + input2));
+        c.println(input1 + " - " + input2 + " = " + (input1 - input2));
+        c.println(input1 + " * " + input2 + " = " + (input1 * input2));
+        c.println(input1 + " / " + input2 + " = " + (input1 / input2));
+    } // end of calculator method
+} // End of L4Q2_Calculator Class

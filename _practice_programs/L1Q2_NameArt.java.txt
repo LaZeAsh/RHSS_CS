@@ -1,0 +1,27 @@
+/*
+Class Name: L1Q2_NameArt
+Programmer: Ayush
+Date Modified: Thursday, September 2022
+Description: Class for all the submissions of Module 2.1 Text Output
+*/
+
+public class L1Q2_NameArt {
+    static Console c;
+    public static void main(String[] args) {
+        nameArt(c); //executing a method
+    }
+    /*
+    Description - This is the solution for Question # 2, 
+    the question asks us to print our name using text
+    */
+    public static void nameArt(Console c) {
+        c = new Console(); // Creates new Console
+        c.println("     A\n    A A\n   AAAAA\n  A     A\n A       A");
+        c.println("\nY         Y\n Y       Y\n  Y     Y\n   Y  Y\n    Y\n    Y\n    Y");
+        c.println("\nU     U\nU     U\nU     U\nU     U\nUUUUUUU");
+        c.println("\nSSSSSSSSS\nS\nS\nS\nS\nSSSSSSSSS\n        S\n        S\n        S\n        S\nSSSSSSSSS");
+    }
+}
+
+
+

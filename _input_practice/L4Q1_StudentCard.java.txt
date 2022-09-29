@@ -1,0 +1,45 @@
+package _input_practice;
+/*
+Class Name: Main
+Programmer: Ayush
+Date Modified: Wednesday, September 28 2022
+Description: Class for all the submissions of Module 2.4 Input Assignment
+*/
+import hsa_ufa.*;
+public class L4Q1_StudentCard {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        studentCard(c);
+    } // End of main method
+    /**
+     * @param c
+     * Takes input of your student card and gives you an output
+     */
+    public static void studentCard(Console c) {
+        // Taking required input
+        c.println("Input your last name (String) ");
+        String lastName = c.readLine();
+        c.println("Input your first name (String) ");
+        String firstName = c.readLine();
+        c.println("Input your student number (int) ");
+        int studentNumber = c.readInt();
+        c.println("Input your home form (String) ");
+        String homeForm = c.readLine();
+        c.println("Input your grade (int) ");
+        int grade = c.readInt();
+        c.println("Input your school (String) ");
+        String school = c.readLine();
+
+        //Clearing the console
+        c.clear();
+
+        // Printing out the required input
+        c.println("Name: " + firstName + " " + lastName);
+        c.println("Student Number: " + studentNumber);
+        c.println("Home Form: " + homeForm);
+        c.println("Grade: " + grade);
+        c.println("School: " + school);
+    
+    } // End of studentCard method
+} // End of L4Q1_StudentCard Class

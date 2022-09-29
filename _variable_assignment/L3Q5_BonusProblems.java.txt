@@ -1,0 +1,22 @@
+package variable_assignment;
+/*
+Class Name: Main
+Programmer: Ayush
+Date Modified: Tuesday, September 27 2022
+Description: Class for all the submissions of Module 2.3 Variables
+*/
+import hsa_ufa.Console;
+public class Main {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        drawMapleLeaf(c);
+    }
+    /**
+     * Draws a maple leaf and is a bonus problem
+     * @param c
+     */
+    public static void drawMapleLeaf(Console c) {
+        c.drawMapleLeaf(0, 0, c.getWidth(), c.getHeight());
+    }
+}

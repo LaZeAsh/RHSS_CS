@@ -1,0 +1,34 @@
+package variable_assignment;
+/*
+Class Name: L3Q1_WarehouseInventory
+Programmer: Ayush
+Date Modified: Tuesday, September 27 2022
+Description: Class for all the submissions of Module 2.3  Variables
+*/
+import hsa_ufa.Console;
+public class L3Q1_WarehouseInventory {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        wareHouseProblem(c);
+    }
+    /**
+     * Calculates the stock left at the end of the year using various arithmetic operations
+     * @param c
+     */
+    public static void wareHouseProblem(Console c) {
+        //Initial Stock
+        int initialStock = 26563;
+        // # of Units purchased
+        int unitsPurchased = 18625;
+        // Total of the initial and purchased units
+        int totalStock = initialStock + unitsPurchased;
+        //Stocks left after damage
+        double afterDamagesInitialStock = initialStock * 0.98;
+        int unitsSold = 15045;
+        totalStock = totalStock - (int) afterDamagesInitialStock;
+        totalStock -= unitsSold;
+        //Printing all the information in an orderly manner
+        c.println("Initital Stock: " + initialStock + "\nStock left after damages: " + (int) afterDamagesInitialStock + "\nAddition Units Purchased " + unitsPurchased + "\nTotal Units Sold " + unitsSold + "\nYear end inventory " + totalStock);
+    }    
+}

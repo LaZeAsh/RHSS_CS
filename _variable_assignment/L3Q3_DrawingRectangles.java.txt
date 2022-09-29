@@ -1,0 +1,24 @@
+package variable_assignment;
+/*
+Class Name: L3Q3_DrawingRectangles
+Programmer: Ayush
+Date Modified: Tuesday, September 27 2022
+Description: Class for all the submissions of Module 2.3 Variables
+*/
+import hsa_ufa.Console;
+public class L3Q3_DrawingRectangles {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        drawRectangles(c);
+    }
+    /**
+     * Draws a rectangle in the HSA console
+     * @param c
+     */
+    public static void drawRectangles(Console c) {
+        int consoleWidth = c.getWidth(); // Gets the width of the console
+        int consoleHeight = c.getHeight(); // Gets the height of the console
+        c.drawRect(0, 0, consoleWidth, consoleHeight);
+    }
+}

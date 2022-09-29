@@ -1,0 +1,37 @@
+package _input_practice;
+/*
+Class Name: L4Q4_MarkBook
+Programmer: Ayush
+Date Modified: Wednesday, September 28 2022
+Description: Class for all the submissions of Module 2.4 Input Assignment
+*/
+import hsa_ufa.*;
+public class Main {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        markBook(c);
+    } // End of main method
+    /**
+     * Calculates the average of your marks inputted
+     * @param c
+     */
+    public static void markBook(Console c) {
+        //Taking required input
+        c.println("Input your 1st mark");
+        int firstMark = c.readInt();
+        c.println("Input your 2nd mark");
+        int secondMark = c.readInt();
+        c.println("Input your 3rd mark");
+        int thirdMark = c.readInt();
+        c.println("Input your 4th mark");
+        int fourthMark = c.readInt();
+
+        //Clearing the console
+        c.clear();
+
+        //Give output as needed
+        c.println("Your average mark is " + ((firstMark + secondMark + thirdMark + fourthMark) / 4));
+        c.println("1st mark: " + firstMark + " 2nd mark: " + secondMark + " 3rd mark: " + thirdMark + " 4th mark: " + fourthMark + "\nAverage mark: " + ((firstMark + secondMark + thirdMark + fourthMark) / 4));
+    }
+} // End of Main Class

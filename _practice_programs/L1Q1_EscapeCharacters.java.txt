@@ -1,0 +1,24 @@
+/*
+Class Name: L1Q1_EscapeCharacters
+Programmer: Ayush
+Date Modified: Thursday, September 2022
+Description: Class for all the submissions of Module 2.1 Text Output
+*/
+
+public class L1Q1_EscapeCharacters {
+    static Console c;
+    public static void main(String[] args) {
+        textOutput(c); //executing a method
+    }
+    /*
+    Description - This is a solution for Question # 1 
+    which asks us to print characters that are normally not printable without a "\"
+    */
+    public static void textOutput(Console c) {
+        c = new Console(); // Creates new Console
+        c.println("A slash is \"/\"\nwhile\na backslash is \"\\\"");
+    }
+}
+
+
+
