@@ -1,0 +1,47 @@
+package _math_assignment;
+/*
+Class Name: L5_Q9_BonusQuestion
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q9_BonusQuestion {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        bonusQuestion(c);
+    }  
+    /**
+     * Bonus Question 
+     * @param c
+     */
+    public static void bonusQuestion(Console c) {
+        int agreementPercent = 0;
+        c.println("Is your favorite food pizza or pasta");
+        String q1 = c.readLine();
+        c.println("Is your favorite color red or blue");
+        String q2 = c.readLine();
+        c.println("Do you like the summer or winter");
+        String q3 = c.readLine();
+        c.println("Is your favorite drink coke or pepsi");
+        String q4 = c.readLine();
+        if(q1.toLowerCase().equals("pizza")) {
+            agreementPercent += 25;
+        }
+
+        if(q2.toLowerCase().equals("red")) {
+            agreementPercent += 25;
+        }
+
+        if(q3.toLowerCase().equals("summer")) {
+            agreementPercent += 25;
+        }
+
+        if(q4.toLowerCase().equals("coke")) {
+            agreementPercent += 25;
+        }
+
+        c.println("Ayush agrees with you " + agreementPercent + "% of the times!");
+    } // end of bonusQuestion method
+} // end of Class

@@ -1,0 +1,30 @@
+package _math_assignment;
+/*
+Class Name: L5_Q2_HypotenuseCalculator
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q2_HypotenuseCalculator {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        hypotenuseCalculator(c);
+    }   
+    /**
+     * Gives you the hypotenuse of your right triangle
+     * @param c
+     */
+    public static void hypotenuseCalculator(Console c) {
+        // Getting input
+        c.println("Input the length of your triangle (int)");
+        int triangleLength = c.readInt();
+        c.println("Input the width of your triangle (int)");
+        int triangleWidth = c.readInt();
+        //Calculation
+        int hypotenuse = (int) Math.sqrt((triangleLength * triangleLength) + (triangleWidth * triangleWidth));
+
+        c.println("The hypotenuse of your right triangle is " + hypotenuse);
+    } // end of hypotenuseCalculator method
+} // end of Class

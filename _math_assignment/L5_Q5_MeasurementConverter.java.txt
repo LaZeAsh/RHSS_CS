@@ -1,0 +1,27 @@
+package _math_assignment;
+/*
+Class Name: L5_Q5_MeasurementConverter
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q5_MeasurementConverter {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        measurementConverter(c);
+    }   
+    /**
+     * Converts inches to cm
+     * @param c
+     */
+    public static void measurementConverter(Console c) {
+        // Getting input
+        c.println("Enter your measurement in inches (double)");
+        double inches = c.readDouble();
+        //Calculation
+        double calculations = inches * 2.54;
+        c.println(Math.round((calculations * 100) / 100) + " cm equals " + inches + " inches (rounded to 2 decimal places)");
+    } // end of measurementConverter method
+} // end of Class

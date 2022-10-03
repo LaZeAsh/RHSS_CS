@@ -1,0 +1,28 @@
+package _math_assignment;
+/*
+Class Name: L5_Q4_TemperatureConverter2
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q4_TemperatureConverter2 {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        temperatureConverter2(c);
+    }   
+    /**
+     * Converts your temperature from Farenheit to Celsius
+     * @param c
+     */
+    public static void temperatureConverter2(Console c) {
+        // Getting input
+        c.println("Input your temperature in farenheit (double)");
+        double farenheitTemp = c.readDouble();
+        //Calculation
+        double celsiusTemp = (farenheitTemp - 32) * 0.5556;
+
+        c.println(farenheitTemp + " in celsius is " + celsiusTemp);
+    } // end of temperatureConverter2 method
+} // end of Class

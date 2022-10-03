@@ -1,0 +1,27 @@
+package _math_assignment;
+/*
+Class Name: L5_Q8_LastDigit
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q8_LastDigit {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        lastDigit(c);
+    }   
+    /**
+     * Outputs the last digit of your number
+     * @param c
+     */
+    public static void lastDigit(Console c) {
+        // Getting input
+        c.println("Input a random integer! (int)");
+        int randInt = c.readInt();
+        int lastInt = randInt % 10;
+
+        c.println(lastInt + " is the last digit of " + randInt);
+    } // end of lastDigit method
+} // end of Class

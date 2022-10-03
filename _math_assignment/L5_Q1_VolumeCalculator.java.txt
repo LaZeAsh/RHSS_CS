@@ -1,0 +1,32 @@
+package _math_assignment;
+/*
+Class Name: L5_Q1_VolumeCalculator
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q1_VolumeCalculator {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        volumeCalculator(c);
+    }
+    /**
+     * Calculates the volume of your prism using the input you provide
+     * @param c
+     */
+    public static void volumeCalculator(Console c) {
+        // Getting input
+        c.println("Input the height of your cube (int)");
+        int cubeHeight = c.readInt();
+        c.println("Input the width of your cube (int)");
+        int cubeWidth = c.readInt();
+        c.println("Input the length of your cube (int)");
+        int cubeLength = c.readInt();
+        //Calculation
+        int cubeVolume = cubeHeight * cubeWidth * cubeLength;
+
+        c.println("The volume of the cube is " + cubeVolume);
+    } // end of volumeCalculator method
+} // end of Class

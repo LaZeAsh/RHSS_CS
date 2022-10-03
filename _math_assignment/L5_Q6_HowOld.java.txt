@@ -1,0 +1,28 @@
+package _math_assignment;
+/*
+Class Name: L5_Q6_HowOld
+Programmer: Ayush
+Date Modified: Monday, October 3 2022
+Description: Class for all the submissions of Module 2.5 Math assignment
+*/
+import hsa_ufa.*;
+public class L5_Q6_HowOld {
+    static Console c;
+    public static void main(String[] args) {
+        c = new Console();
+        howOld(c);
+    }
+    /**
+     * Tells you how old are you according to your birth year
+     * @param c
+     */
+    public static void howOld(Console c) {
+        // Getting input
+        c.println("Enter your birthyear (int)");
+        int birthYear = c.readInt();
+        //Calculation
+        int calculations = 2022 - birthYear;
+
+        c.println("You are currently " + calculations + " years old!");
+    } // end of howOld method
+} // end of Class
