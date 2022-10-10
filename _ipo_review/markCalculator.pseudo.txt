@@ -1,0 +1,26 @@
+Input of the markCalculator problem
+
+Get course 1's name
+Get course 2's name
+Get course 3's name
+Get course 4's name
+
+Processing of the markCalculator problem
+
+Get a random number between 40 - 100 for the mark of course 1 
+Get a random number between 40 - 100 for the mark of course 2 
+Get a random number between 40 - 100 for the mark of course 3 
+Get a random number between 40 - 100 for the mark of course 4 
+Get the average mark of all 4 courses by adding them all and dividing by 4 and round it to 1 decimal place
+
+Output of the markCalculator problem
+
+In the output make a table and format the course name the average
+make sure the average and the course marks end with a "%"
+
+
+IPO Chart
+I - The course names
+P - Getting a random mark for each course and averaging them out
+O - Outputting the result in a table with course names and using percent form
+
