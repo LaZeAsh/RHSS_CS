@@ -20,7 +20,7 @@ make sure the average and the course marks end with a "%"
 
 
 IPO Chart
-I - The course names
+I - Input the course names
 P - Getting a random mark for each course and averaging them out
 O - Outputting the result in a table with course names and using percent form
 

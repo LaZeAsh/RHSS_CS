@@ -1,4 +1,9 @@
 package _ipo_review;
+/*
+Programmer: Ayush
+Date Modified: Monday, October 11 2022
+Description: Class for all the submissions of the 2.6 review module
+*/
 import hsa_ufa.*;
 public class Main {
     static Console c;
@@ -33,14 +38,36 @@ public class Main {
         // finds the average mark of all 4 courses and rounds to 1 decimal place
         double averageMark = Math.round(((course1Mark + course2Mark + course3Mark + course4Mark) / 4) * 10.0) / 10.0;
         
-
+        
         // Output of markCalculator
-        c.println("Course    Mark"); // 4 spaces 6 chars
-        c.println(course1Name + "        " + course1Mark);
-        c.println(course2Name + "        " + course2Mark);
-        c.println(course3Name + "        " + course3Mark);
-        c.println(course4Name + "        " + course4Mark);
-        c.println("\nAverage Mark: " + averageMark);
+        c.print("Course: ");
+        c.print(course1Name,10);
+        c.print("\t"); 
+        c.print(course1Mark,4,1);
+        c.print(" %\n"); 
+        
+        // Course 2 Marks
+        c.print("Course: ");
+        c.print(course2Name,10);
+        c.print("\t"); 
+        c.print(course2Mark,4,1);
+        c.print(" %\n"); 
+        
+        //Course 3 marks
+        c.print("Course: ");
+        c.print(course3Name,10);
+        c.print("\t"); 
+        c.print(course3Mark,4,1);
+        c.print(" %\n"); 
+        
+        // Course 4 marks
+        c.print("Course: ");
+        c.print(course4Name,10);
+        c.print("\t"); 
+        c.print(course4Mark,4,1);
+        c.print(" %\n"); 
+        
+        c.println("\nAverage Mark: " + averageMark + "%");
         
     } // end of mark calculator method
 
@@ -52,6 +79,90 @@ public class Main {
         c.println("Input the amount of money you are paying with");
         double billPayment = c.readDouble();
         
-    }
+
+        // Processing of changeCalculator
+
+        double change = billPayment - billAmount;
+
+        if(change < 0) {
+            c.println("You do not have enough money to pay the bill! Try again");
+            return;
+        }
+
+        if(change % 1 == 0) {
+            if(change % 20 == 0) {
+                c.println("Your change is " + (change / 20) + " $20 bills");
+                return;
+            } else if(change % 10 == 0) {
+                c.println("Your change is " + (change / 10) + " $10 bills");
+                return;
+            } else if(change % 5 == 0) {
+                c.println("Your change is " + (change / 5) + " $5 bills");
+                return;
+            } else {
+                c.println("Your change is " + (change / 1) + " $1 bills");
+            }            
+        }
+
+        if(change % 0.25 == 0) {
+            if(change % 20 == 0) {
+                c.println("Your change is " + ((int) change / 20) + " $20 bills");
+                change = (int) change / 20;
+                c.println("Along with " + (change / 0.25) + " quarters");
+                return;
+            } else if(change % 10 == 0) {
+                c.println("Your change is " + ((int)change / 10) + " $10 bills");
+                change = (int) change / 10;
+                c.println("Along with " + (change / 0.25) + " quarters");
+                return;
+            } else if(change % 5 == 0) {
+                c.println("Your change is " + (change / 5) + " $5 bills");
+                change = (int) change / 5;
+                c.println("Along with " + (change / 0.25) + " quarters");
+                return;
+            } else if(change % 1 == 0) {
+                c.println("Your change is " + (change / 1) + " $1 bills");
+                change = (int) change / 1;
+                c.println("Along with " + (change / 0.25) + " quarters");
+            } else {
+                c.println("Your change is " + (change / 0.25) + " quarters");
+            }     
+        }
+        // logic doesn't make sense if 
+        if(change % 0.1 == 0) {
+            // Think about these if statements dont make sense
+            if(!(change % 20.0 < 0)) {
+                c.println("Your change is " + ((int) change / 20) + " $20 bills");
+                change = (int) change / 20;
+                c.println("Along with " + ((int)change / 0.25) + " quarters");
+                change = (int) change / 0.1;
+                c.println("Along with " + (change / 0.1) + " dimes");
+                return;
+            } else if(!(change % 10.0 < 0)) {
+                c.println("Your change is " + ((int)change / 10) + " $10 bills");
+                change = (int) change / 10;
+                c.println("Along with " + ((int)change / 0.25) + " quarters");
+                change = (int) change / 0.1;
+                c.println("Along with " + (change / 0.1) + " dimes");
+                return;
+            } else if(!(change % 5.0 < 0)) {
+                c.println("Your change is " + (change / 5) + " $5 bills");
+                change = (int) change / 5;
+                c.println("Along with " + ((int)change / 0.25) + " quarters");
+                change = (int) change / 0.1;
+                c.println("Along with " + (change / 0.1) + " dimes");
+                return;
+            } else if(!(change % 1.0 < 0)) {
+                c.println("Your change is " + (change / 1) + " $1 bills");
+                change = (int) change / 1;
+                c.println("Along with " + ((int)change / 0.25) + " quarters");
+                change = (int) change / 0.1;
+                c.println("Along with " + (change / 0.1) + " dimes");
+            } else if(!(change % 0.25 < 0)) {
+                // c.println("Your change is " + ());
+            }
+        }
+        
+    } // end of changeCalculator method
 
 } // end of class
