@@ -7,5 +7,7 @@
 ### _math_assignment = 2.5 - Math
 ### _ipo_review = 2.6 - Review
 
+### _selection_structures = 3.1 - Selection Structures
+
 # Useful Links
 - https://docs.oracle.com/en/java/
