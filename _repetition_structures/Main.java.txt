@@ -165,15 +165,13 @@ class Main {
 
     /**
      * Answer for Question 7, prints time tables
-     * 
      * @param c
      */
     public static void L2Q7_TimeTables(Console c) {
         // For loop for printing the time tables
         // Input Processing and Output
         for (int x = 1; x < 7; x++) {
-            c.println(
-                    x + ": " + (x * 1) + " " + (x * 2) + " " + (x * 3) + " " + (x * 4) + " " + (x * 5) + " " + (x * 6));
+            c.println(x + ": " + (x * 1) + " " + (x * 2) + " " + (x * 3) + " " + (x * 4) + " " + (x * 5) + " " + (x * 6));
         }
     }
 
