@@ -1,5 +1,11 @@
 package _repetition_structures;
 import hsa_ufa.*;
+/*
+Programmer: Ayush
+Date Modified: Monday, October 24 2022
+Class Name: Main 
+Description: Class for the solution of activity 3.2 
+*/
 class Main {
     static Console c;
     public static void main(String[] args) {
@@ -154,5 +160,5 @@ class Main {
             c.println(x + ": " + (x * 1) + " " + (x * 2) + " " + (x * 3) + " " + (x * 4) + " " + (x * 5) + " " + (x * 6));
         }
     }
-}
+} // end of Main class
 
