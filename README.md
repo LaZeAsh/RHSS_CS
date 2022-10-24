@@ -8,6 +8,6 @@
 ### _ipo_review = 2.6 - Review
 
 ### _selection_structures = 3.1 - Selection Structures
-
+### _repetition_structures = 3.2 - Repetition Structures
 # Useful Links
 - https://docs.oracle.com/en/java/
