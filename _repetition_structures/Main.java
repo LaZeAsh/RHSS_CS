@@ -4,12 +4,12 @@ class Main {
     static Console c;
     public static void main(String[] args) {
         c = new Console();
-       L2Q1_Echo(c); 
-       L2Q2_TempConverter2(c);
-       L2Q3_SellThisHouse(c);
-       L2Q4_ImTallerThanYou(c);
-       L2Q5_Marks2(c);
-    //    L2Q6_PrimeNumbers(c);
+    //    L2Q1_Echo(c); 
+    //    L2Q2_TempConverter2(c);
+    //    L2Q3_SellThisHouse(c);
+    //    L2Q4_ImTallerThanYou(c);
+    //    L2Q5_Marks2(c);
+       L2Q6_PrimeNumbers(c);
     //    L2Q7_TimeTables(c);
     }
 
@@ -88,14 +88,43 @@ class Main {
      * @param c
      */
     public static void L2Q5_Marks2(Console c) {
+        // INPUT
+       c.println("Input the number of students in the class"); 
+       int students = c.readInt();
+       double average = 0;
 
+       // PROCESSING
+       // for loop to calculate students grades 
+       for(int x = 0; x < students; x++) {
+        average = Math.random() * 100;
+        if (x == students - 1) {
+            average /= x;
+        }
+       }
+
+       // OUTPUT
+       c.println("The average mark in the class were " + average);
     }
     /**
      * Pseudo code needed
      * @param c
      */
     public static void L2Q6_PrimeNumbers(Console c) {
-
+        for(int x = 2; x < 101;x++) { 
+            for (int i = 1; i < 101; i++) {
+                if(x % i == 0) {
+                    break;
+                }
+                if(x % i == 0) {
+                    System.out.println(x + " is not a prime number");
+                    break;
+                }
+                if(i >= x) {
+                    c.println(x + " is a prime number");
+                }
+                
+             }
+        } 
     }
 
     public static void L2Q7_TimeTables(Console c) {

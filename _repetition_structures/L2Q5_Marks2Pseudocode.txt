@@ -1,0 +1,15 @@
+OUTPUT "Input the number of students in the class"
+INPUT # of students
+set average to 0
+
+LOOP:
+for x = 0 to # of students:
+    CALCULATE average = random number * 100
+    IF x equals students - 1
+        CALCULATE average = average / x
+END LOOP:
+
+OUTPUT "The average mark in the class were " + average
+
+
+
