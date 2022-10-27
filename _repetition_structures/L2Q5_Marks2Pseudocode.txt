@@ -11,5 +11,3 @@ END LOOP:
 
 OUTPUT "The average mark in the class were " + average
 
-
-

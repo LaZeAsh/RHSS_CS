@@ -196,6 +196,7 @@ class Main {
             c.println(x + " is not the number");
             x++;
         }
+        
         c.println(x + " is the number!");
     }
 } // end of Main class

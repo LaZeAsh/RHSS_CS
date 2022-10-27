@@ -9,4 +9,6 @@ for x = 2 to 101
             OUTPUT x + " is a prime number"
             break
     END LOOP
-END LOOP            
+END LOOP   
+
+
