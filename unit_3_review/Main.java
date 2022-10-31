@@ -133,7 +133,7 @@ public class Main {
             c.println("Enter any key to continue");
             String uselessVariable = c.readLine();
             c.println(" ");
-        }
+        } // end of for loop
 
         // Processing / Output
         // Outputs who won after calculating who won
