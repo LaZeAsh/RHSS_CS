@@ -19,7 +19,19 @@ public class MultiThreading extends Thread {
             this.game.delay(game.delaySeconds);
         } catch (InterruptedException e) {
             System.out.println(e);
+            Thread.currentThread().interrupt();
+            return;
         }
-        this.game.playMove(this.game.getPlayerVisibleCards(), this.game.getTableCard1(), this.game.getTableCard2());
+        // System.out.println("Made it!");
+        int output = this.game.playMove(this.game.computerVisibleCards, this.game.getTableCard1(), this.game.getTableCard2());
+        // System.out.println("Done!");
+        // System.out.println("Output " + output);
+        if(output != 0) {
+            game.decideWinner("computer");
+            game.gameWinner = "computer"; // computer won
+            // System.out.println("Decided computer as winner!");
+        } else {
+            game.gameWinner = "tie";
+        }
     } // end of run method
 } // end of MultiThreading class

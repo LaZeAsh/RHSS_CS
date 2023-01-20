@@ -1,4 +1,7 @@
 package __finalProject;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 /*
 Class Name: Main
 Programmer: Ayush
@@ -14,7 +17,8 @@ class Main {
     static Console c;
     public static void main(String[] aStrings) {
         c = new Console();
-        game.cards = new HashMap<Integer, String[]>();
+        // Initializing all important variables for the game
+        game.cards = new HashMap<Integer, Integer>();
         game.initializingCardsMap(game.cards); // initialized Map of all cards
         game.playerCards = game.distributingCards(game.cards, 20);
         game.computerCards = game.distributingCards(game.cards, 20);
@@ -22,52 +26,190 @@ class Main {
         game.replaceDeck2 = game.distributingCards(game.cards, 5);
         game.tableCard1 = game.distributingCards(game.cards, 1);
         game.tableCard2 = game.distributingCards(game.cards, 1);
-        game.playerVisibleCards = game.getVisibleCards(game.playerCards, 4);
-        game.computerVisibleCards = game.getVisibleCards(game.computerCards, 4);
+        game.playerVisibleCards = game.getVisibleCards(game.playerCards, 5);
+        game.computerVisibleCards = game.getVisibleCards(game.computerCards, 5);
         game.delaySeconds = startGame(c);
+        game.playerScore = 0; // initializing the score variables
+        game.computerScore = 0; // initializing the score variables
 
-        MultiThreading computerThread = new MultiThreading(game);
-        System.out.println("How many rounds do you want to play before the game is called off and there's a stalemate?");
+        
+        // Deciding rounds
+        c.println("How many rounds do you want to play before the game is called off and a winner is decided?");
         int rounds = c.readInt();
         // max of 10 and minumum of 1 round
         while(rounds < 0 && rounds > 10) {
-            System.out.println("Enter the number of rounds between 0 and 10");
+            c.println("Enter the number of rounds between 0 and 10");
             rounds = c.readInt();
         } 
-        // displayCards(); // for visuals lol
-        game.input(c); // outside the loop to 
-        // System.exit(0); to exit process
+
+        // initializing score and gameWinner
+        // game.score = new int[rounds][2];
+        game.roundResults = new String[rounds + 10]; // max 10 so add that to # of rounds
+        game.gameWinner = "none"; // making no winner
         
+        // Outputting the options for the game (table cards and their cards) 
+        // game.input(c); 
+        // int[] cardArray = outputCards(game.playerVisibleCards, c);
+        // game.playerVisibleCards.forEach((card, count) -> System.out.println(card + ":" + count));
+        // c.println(game.tableCard1.keySet().toArray()[0] + " " + game.tableCard2.keySet().toArray()[0]);
+        // c.println("Please input a number 1 - 5 (inclusive) to select your card");
+
+        // Taking input and starting computer thread
+        // computerThread.start(); 
+        // int userResponse = c.readInt();
+        // HashMap<Integer, Integer> responseMap = new HashMap<Integer, Integer>();
+        // responseMap.put(userResponse, cardArray[userResponse]);
+        // int isCorrect = game.checkMove(game.tableCard1, game.tableCard2, responseMap);
+        // while (isCorrect == 0) {
+        //     // do it again
+        //     c.println("Invalid choice try again");
+        //     responseMap.remove(cardArray[userResponse]);
+        //     userResponse = c.readInt();
+        //     responseMap.put(userResponse, 1);
+        //     isCorrect = game.checkMove(game.tableCard1, game.tableCard2, responseMap);
+        // }
+
+        // if(game.gameWinner == "computer") {
+        //     // user loss rip
+        // } else if (game.gameWinner == "none") {
+        //     // kill the thread and declare user as winner
+        //     game.decideWinner("player", game.round);
+        // }
+        // System.exit(0); to exit process
+        // looping for # of rounds 
+        
+        // for loop that iterates until all the rounds
         for (int x = 0; x < rounds; x++) {
+            game.gameWinner = "none";
+            MultiThreading computerThread = new MultiThreading(game);
+            game.round = x + 1;
             // print results of the game play (who won computer or user)
             // also present points (2 points for winning 0 points for losing and 1 point for tie [when no one can play on])
             c.println("When you are ready to play on press any key to continue or say 'quit' to quit");
             String response = c.readLine();
-            if(response == "quit") {
+            if(response.equalsIgnoreCase("quit")) {
+                System.exit(0);
                 goodbye();
             }
+            computerThread.start();
             if(game.playerCards.size() == 0 || game.computerCards.size() == 0 || game.replaceDeck1.size() == 0 || game.replaceDeck2.size() == 0) {
-                // end game
+                goodbye();
+                // end game because the player either won or the decks are out of cards
             }
             if(x == rounds - 1) {
                 // how many rounds the user wants to play so end in stalemate after this
                 c.println("This is your last round!");
             }
-            // print results of previous round (who won)
-            if (game.input(c) > 5 || game.input(c) < 1) {
-                c.println("Hope you had fun playing! Goodbye!");
+
+            // Printing the cards that are on the table
+            c.println("Table Cards:");
+            c.println(game.tableCard1.keySet().toArray()[0] + " " + game.tableCard2.keySet().toArray()[0]);
+            c.println("");
+            game.playerVisibleCards.forEach((card, count) -> {
+                c.println(card + " : " + count);
+            });
+            c.println(""); // formatting
+            c.println("Please enter the value of the card you want to play");
+            int userResponse = c.readInt();
+            HashMap<Integer, Integer> responseMap = new HashMap<Integer, Integer>();
+            // make sure the response isn't invalid
+            if(userResponse != 0) {
+                // checking if the response exists
+                if(game.playerVisibleCards.containsKey(userResponse)) {
+                    // user gave an existing response
+                    responseMap.put(userResponse, game.playerVisibleCards.get(userResponse));
+                } else {
+                    // user gave a non existent response
+                    c.println("Please give a valid value!");
+                    x -= 1; 
+                    continue;
+                }
+
+                int isCorrect = game.checkMove(game.tableCard1, game.tableCard2, responseMap);
+                while (isCorrect == 0) {
+                    // do it again
+                    c.println("Invalid choice try again");
+                    responseMap.remove(userResponse);
+                    userResponse = c.readInt();
+                    responseMap.put(userResponse, game.playerVisibleCards.get(userResponse));
+                    if(game.playerVisibleCards.containsKey(userResponse)) {
+                        isCorrect = game.checkMove(game.tableCard1, game.tableCard2, responseMap);
+                    } else {
+                        continue;
+                    }
+                }
+            } else {
+                game.gameWinner = "tie";
             }
-            // input code for how the game is going to run
-            
-            // when asking the user for input start 2nd thread if the user gives an approrpriate response then kill the 2nd thread
-            // figure out a way to tell how much time has elapsed since the start of the window where 
-            // if winner make a goodbye function
-            // store the details of each round in array (clarify in class like what type of details)
-            
+            // checking if the response exists
+            // if(game.playerVisibleCards.containsKey(userResponse)) {
+            //     // user gave an existing response
+            //     responseMap.put(userResponse, game.playerVisibleCards.get(userResponse));
+            // } else {
+            //     // user gave a non existent response
+            //     c.println("Please give a valid value!");
+            //     x -= 1; 
+            //     continue;
+            // }
+
+            // int isCorrect = game.checkMove(game.tableCard1, game.tableCard2, responseMap);
+            // while (isCorrect == 0) {
+            //     // do it again
+            //     c.println("Invalid choice try again");
+            //     responseMap.remove(userResponse);
+            //     userResponse = c.readInt();
+            //     responseMap.put(userResponse, 1);
+            //     isCorrect = game.checkMove(game.tableCard1, game.tableCard2, responseMap);
+            // }
+
+            // ROUND ENDED
+            // do some formatting here
+            // System.out.println("Winner is " + game.gameWinner);
+            if(game.gameWinner == "computer") {
+                c.println("Computer won the round!");
+            } else if(game.gameWinner.equals("tie")) { // if tie or 0 which user can do to declare tie
+                computerThread.interrupt();
+                game.tableCard1 = game.getVisibleCards(game.replaceDeck1, 1); 
+                game.tableCard2 = game.getVisibleCards(game.replaceDeck2, 1);
+                game.decideWinner("tie");
+                c.clear();
+                c.println("It's a tie based on user's request!");
+                outputResults(game.score, c);
+                rounds++; // increases rounds played by 1 (doesn't fall under max 10 rule)
+                continue; // no valid choices
+            } else if (game.gameWinner.equals("none")) {
+                // kill the thread and declare user as winner
+                computerThread.interrupt(); // stops the thread
+                game.decideWinner("player");
+                c.println("You won the round!"); 
+                int temp = game.playerVisibleCards.get(userResponse);
+                if(temp > 1) {
+                    // more than 1 of that card
+                    game.playerVisibleCards.put(userResponse, (temp - 1));
+                } else {
+                    // 1 card
+                    game.playerVisibleCards.remove(userResponse);
+                }
+                HashMap<Integer, Integer> tempHash = game.getVisibleCards(game.playerCards, 1);
+                int visibleCardKey = 0;
+                visibleCardKey = (int) tempHash.keySet().toArray()[0];
+                if(game.playerVisibleCards.containsKey(visibleCardKey)) {
+                    temp = game.playerVisibleCards.get(visibleCardKey);
+                    temp++;
+                    game.playerVisibleCards.put(visibleCardKey, temp);
+                } else {
+                    game.playerVisibleCards.put(visibleCardKey, tempHash.get(tempHash.keySet().toArray()[0]));
+                }
+            }
+            c.clear();
+            outputResults(game.score, c); // outputs the results in the console
         }
-        c.println("The game is finished! " + rounds + " amount of rounds were played");
-        // if loop over that means the amount of rounds is done
-        // displayOptions(game.getPlayerVisibleCards());
+        c.clear();
+        // outputResults(game.score, c);
+        c.println("The game is finished! " + rounds + " rounds were played");
+        goodbye();
+    // if loop over that means the amount of rounds is done
+        // displayCardOptions(game.getPlayerVisibleCards());
     } // end of main method
 
     /**
@@ -161,27 +303,83 @@ class Main {
         }
     } // end of displayOptions method
 
+    
     public static void goodbye() {
         // stats of each player should be shown and declare winner
         // give option to start new game or quit 
-    } // end of goodbye method
+        int playerScore = game.playerScore;
+        int computerScore = game.computerScore;
+        // writing to output file
+        try {
+            PrintWriter output = new PrintWriter(new PrintStream("output.txt"));
+            // to print results of all the rounds
+            // looping through each of the round results
+            for (int x = 0; x < game.roundResults.length; x++) {
+                if(game.roundResults[x] == null) break;
+                output.write("Round  " + (x + 1) + "\n");
+                output.write(game.roundResults[x] + " wins\n");
+                output.write("\n");
+            }
+            if(playerScore > computerScore) {
+                c.println("Player Won!");
+                c.println("Player score: " + playerScore);
+                c.println("Computer score: " + computerScore);
+                
+                output.write("Player won!\n");
+                output.write("Player score: " + playerScore + "\n");
+                output.write("Computer score: " + computerScore + "\n");
+            } else if (playerScore < computerScore) {
+                c.println("Computer Won!");
+                c.println("Player score: " + playerScore); 
+                c.println("Computer score: " + computerScore); 
+                
+                output.write("Computer score: " + computerScore + "\n");
+                output.write("Player score: " + playerScore + "\n");
+                output.write("Computer score: " + computerScore + "\n");
+            } else {
+                c.println("Player and Computer tied!");
+                c.println("Player score: " + playerScore);
+                c.println("Computer score: " + computerScore);
+                
+                output.write("Player and Computer tied!" + "\n");
+                output.write("Player score: " + playerScore + "\n");
+                output.write("Computer score: " + computerScore + "\n");
+            }
 
+            output.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        c.println("Would you like to play again or quit?");
+        c.println("1 - quit");
+        c.println("2 - play");
+        int option = c.readInt();
+        switch (option) {
+            case 1:
+                System.exit(0);        
+                break;
+            case 2:
+                main(null);
+                break;
+        }
+    } // end of goodbye method
+    /**
+     * 
+     * @param results
+     * @param c
+     */
     public static void outputResults(int[][] results, Console c) {
         // The game stats & winner declaration must be processed and displayed using a command method
         // called outputResults() that uses the information stored in the array that stores the points from
         // each round played.
-
-        for (int x = 0; x < results.length; x++) {
-            int playerScore = results[x][0];
-            int computerScore = results[x][1];
-
-            if(playerScore > computerScore) {
-               c.println("The player has won with a score of " + playerScore); 
-               c.println("Congrats!");
-            } else {
-                c.println("The computer has won with a score of " + computerScore);
-                c.println("Better luck next time!");
-            }
-        }
+        int playerScore = game.playerScore;
+        int computerScore = game.computerScore;
+        // for (int x = 0; x < results.length; x++) {
+        //     playerScore = results[x][0];
+        //     computerScore = results[x][1];
+        // }
+        c.println("The player has a score of " + playerScore); 
+        c.println("The computer has a score of " + computerScore);
     } // end of outputResults method
 } // end of Main class
