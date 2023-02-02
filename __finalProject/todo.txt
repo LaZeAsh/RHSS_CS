@@ -1,0 +1,38 @@
+- Points awarded (fix that point isnt being added)
+- Declare clear winner in text
+
+Level 2:
+Must do (Level 2 Features):
+- Player vs Computer format. (done)
+- A game must consist of a user defined multiple (max 10) rounds of play. (done)
+- The result of each round must be presented on the HSA console and game play must pause. (done)
+- The player and computer points awarded as follows 2 points are given to the winning player, 0 points
+to the losing player and 1 point to each for a tie. (done)
+- A player must be able to end the game they are playing. (done)
+- When a game ends the game stats of each player should be shown and the winner of the game
+should be declared. (done)
+- All input and output must use the HSA Console. (done)
+
+Level 3:
+Level 3 Features
+- A player must be able to start a new game after finishing a game. (done)
+- The results of each round and the final game result is written to an Output.txt file. (done)
+- The details of each round of play are stored in an array. (done)
+
+Level 4:
+Level 4 Features
+- The game stats & winner declaration must be processed and displayed using a command method 
+called outputResults() that uses the information stored in the array that stores the points from
+each round played. (done)
+- Complex game algorithm involving nested if statements. (done)
+
+Level 4+:
+Level 4 + Features
+- Implementation of a highly complex Game algorithm. Confirm with your Teacher if the planned game
+algorithm meets this requirement. A complex game algorithm must include use of multi-nested
+selection and/or repetition to determine the computer round move and the round winner. A game
+algorithm like Rock Paper Scissors would not be considered complex. (done)
+- In addition to excellent implementation of the previous stated features, to achieve a Level 4+, the
+programmers should provide additional game feature(s) (stated in your project plan) to achieve this
+level. (done)
+

@@ -1,0 +1,54 @@
+SPEED CARD GAME
+
+Welcome to possibly one of the hardest (to code) card games to play on the HSA Console!
+
+Difficulties:
+
+Easy - Computer waits for 7 seconds before playing
+Medium - Computer waits for 5 seconds before playing
+Hard - Computer waits for 3 seconds before playing
+Impossible - Computer waits for 1 second before playing
+
+Rounds:
+
+You get an option to choose how many rounds you want there to be played (1 - 10)
+after the # of rounds inputted are finished then a winner is chosen based
+how many points each user (player and computer) have
+
+Input a number 1 - 4 to select your difficulty (1 being easiest and 4 being hardest)
+
+Table Cards:
+Value 1, Value 2
+
+In this case you have to input a card that is 1 more or 1 less than either one of the table cards
+
+
+Cards:
+    Card Value : # of the card in your hands
+
+Card value represents value of the card (1 - 13)
+# of card in your hands represents how many of those cards you have in your hand (1 - 4) 
+
+Example scenario
+
+Table Card:
+5, 3
+
+2 : 1
+8 : 2
+6 : 1
+1 : 1
+
+Here you have 1 of card 2, 2 of card 8, 1 of card 6, 1 of card 1
+
+You would input the value of the card you want to play
+
+Example: 
+
+6
+
+This will return if your choice is correct / valid or not and check with the computer if the computer has responded
+and declare winner accordingly
+
+In case none of your cards are applicable in a scenario
+Input: 0 to tie the game

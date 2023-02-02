@@ -131,6 +131,9 @@ public class Main {
                 if(line == null) {
                     break;
                 }
+                if(line.length() < 3) {
+                    continue;
+                }
                 // puncutation list ! . ?
                 // filtering out punctuation
                 if(line.contains(".")) line.replace('.', ' '); 
@@ -141,7 +144,7 @@ public class Main {
                 int average = 0;
                 // for loop to iterate through array
                 for (int x = 0; x < arr.length; x++) {
-                   average += arr[x].length();
+                average += arr[x].length();
                 } // end of for loop
                 // finding average
                 average = (int) average / arr.length;

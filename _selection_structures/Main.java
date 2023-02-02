@@ -1,13 +1,13 @@
 package _selection_structures;
+import hsa_ufa.*;
 /*
 Programmer: Ayush
 Date Modified: Monday, October 17 2022
 Class Name: Main
 Description: Class for the solution of the 3.1 programming assignment
 */
-import hsa_ufa.*;
 public class Main {
-    static Console c;
+    static Console c = new hsa_ufa.Console();
     public static void main(String[] args) {
         c = new Console();
         largestValue(c);

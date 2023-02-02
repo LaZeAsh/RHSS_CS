@@ -131,34 +131,37 @@ public class Main {
         // logic doesn't make sense if 
         if(change % 0.1 == 0) {
             // Think about these if statements dont make sense
-            if(!(change % 20.0 < 0)) {
+            if(!(change / 20.0 < 0)) {
                 c.println("Your change is " + ((int) change / 20) + " $20 bills");
                 change = (int) change / 20;
                 c.println("Along with " + ((int)change / 0.25) + " quarters");
                 change = (int) change / 0.1;
                 c.println("Along with " + (change / 0.1) + " dimes");
                 return;
-            } else if(!(change % 10.0 < 0)) {
+            } else if(!(change / 10.0 < 0)) {
                 c.println("Your change is " + ((int)change / 10) + " $10 bills");
                 change = (int) change / 10;
                 c.println("Along with " + ((int)change / 0.25) + " quarters");
                 change = (int) change / 0.1;
                 c.println("Along with " + (change / 0.1) + " dimes");
                 return;
-            } else if(!(change % 5.0 < 0)) {
+            } else if(!(change / 5.0 < 0)) {
                 c.println("Your change is " + (change / 5) + " $5 bills");
                 change = (int) change / 5;
                 c.println("Along with " + ((int)change / 0.25) + " quarters");
                 change = (int) change / 0.1;
                 c.println("Along with " + (change / 0.1) + " dimes");
                 return;
-            } else if(!(change % 1.0 < 0)) {
+            } else if(!(change / 1.0 < 0)) {
                 c.println("Your change is " + (change / 1) + " $1 bills");
                 change = (int) change / 1;
                 c.println("Along with " + ((int)change / 0.25) + " quarters");
                 change = (int) change / 0.1;
                 c.println("Along with " + (change / 0.1) + " dimes");
-            } else if(!(change % 0.25 < 0)) {
+            } else if(!(change / 0.25 < 0)) {
+                c.println("Your change is " + (int) (change / 0.25) + "quarters");
+                change = change / 0.25;
+                
                 // c.println("Your change is " + ());
             }
         }

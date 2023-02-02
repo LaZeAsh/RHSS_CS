@@ -1,0 +1,24 @@
+Round  1
+player wins
+
+Round  2
+tie wins
+
+Round  3
+tie wins
+
+Round  4
+player wins
+
+Round  5
+tie wins
+
+Round  6
+tie wins
+
+Round  7
+computer wins
+
+Computer score: 14
+Player score: 8
+Computer score: 14
